@@ -1,0 +1,585 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@keyframes identifier {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(250%);
+  }
+}
+
+.loader {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #0c0b12;
+  position: relative;
+  font-family: "Unbounded", sans-serif;
+  overflow-x: hidden; /* Защита от любых горизонтальных вылетов */
+
+  &__stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+    border-radius: 50%;
+
+    &--sm {
+      width: 1px;
+      height: 1px;
+      opacity: 0.5;
+      box-shadow:
+        69.2vw 34.1vh #fff,
+        32.9vw 57.6vh #fff,
+        38.1vw 23.8vh #fff,
+        20.9vw 85vh #fff,
+        67.6vw 46.1vh #fff,
+        61.3vw 95.5vh #fff,
+        30.6vw 41.7vh #fff,
+        25.7vw 55.8vh #fff,
+        13vw 81.4vh #fff,
+        51.8vw 96vh #fff,
+        77.3vw 32.6vh #fff,
+        85.3vw 58vh #fff,
+        43.9vw 58.4vh #fff,
+        6.2vw 86vh #fff,
+        97.2vw 3.3vh #fff,
+        0.8vw 0vh #fff,
+        43.9vw 66.1vh #fff,
+        95.1vw 3.7vh #fff,
+        7.3vw 25.8vh #fff,
+        37.7vw 13.3vh #fff,
+        84.6vw 38.5vh #fff,
+        85.4vw 69.6vh #fff,
+        43.2vw 27.7vh #fff,
+        22.9vw 69.8vh #fff,
+        42vw 80.9vh #fff,
+        60.1vw 47.2vh #fff,
+        95.4vw 22.2vh #fff,
+        85.5vw 30vh #fff,
+        65.8vw 40.6vh #fff,
+        40.6vw 3.3vh #fff,
+        74.3vw 98vh #fff,
+        13.5vw 40.7vh #fff,
+        50.1vw 44.9vh #fff,
+        14.2vw 57.9vh #fff,
+        14.7vw 10.3vh #fff,
+        5.7vw 54.3vh #fff,
+        68.5vw 69.5vh #fff,
+        38.4vw 87vh #fff,
+        73.4vw 95.1vh #fff,
+        75.3vw 65.1vh #fff,
+        13vw 85.1vh #fff,
+        89.8vw 60.1vh #fff,
+        25.5vw 24.8vh #fff,
+        88.8vw 10.7vh #fff,
+        68.9vw 75.6vh #fff,
+        62.1vw 46.1vh #fff,
+        79.7vw 52.3vh #fff,
+        47.6vw 37vh #fff,
+        39.8vw 72.3vh #fff,
+        57.4vw 31.2vh #fff,
+        25.6vw 53.2vh #fff,
+        58.4vw 44vh #fff,
+        51.9vw 21.7vh #fff,
+        23.9vw 44vh #fff,
+        91.8vw 31.6vh #fff,
+        45.1vw 57.3vh #fff,
+        45.9vw 66.7vh #fff,
+        17.8vw 29vh #fff,
+        57.8vw 23.4vh #fff,
+        45.1vw 20.8vh #fff,
+        29.4vw 3.1vh #fff,
+        60.2vw 10.6vh #fff,
+        36.2vw 5.6vh #fff,
+        51.2vw 4.5vh #fff,
+        95.5vw 47.5vh #fff,
+        30.8vw 39.8vh #fff,
+        83vw 29.8vh #fff,
+        2.9vw 99.7vh #fff,
+        24.6vw 11.7vh #fff,
+        23.2vw 41.1vh #fff,
+        94.3vw 27.2vh #fff,
+        53.4vw 50.4vh #fff,
+        78vw 30.1vh #fff,
+        21.4vw 42.1vh #fff,
+        18.3vw 6.6vh #fff,
+        43.7vw 21.6vh #fff,
+        13.9vw 71.9vh #fff,
+        81.1vw 0.2vh #fff,
+        69.4vw 78.8vh #fff,
+        12.1vw 29.7vh #fff,
+        97.3vw 36.6vh #fff,
+        80.2vw 79vh #fff,
+        4vw 53vh #fff,
+        34.6vw 17vh #fff,
+        1.3vw 84.5vh #fff,
+        39.8vw 15.5vh #fff,
+        30.4vw 72.9vh #fff,
+        87.6vw 57.7vh #fff,
+        16.9vw 13.2vh #fff,
+        71.9vw 78.5vh #fff,
+        62.8vw 49.7vh #fff,
+        15.6vw 69.8vh #fff,
+        24.7vw 76.2vh #fff,
+        36.5vw 14.7vh #fff,
+        2.1vw 52.7vh #fff,
+        30.2vw 83.7vh #fff,
+        87.9vw 13.7vh #fff,
+        97.3vw 24.4vh #fff,
+        51.3vw 73.4vh #fff,
+        99.3vw 20.7vh #fff,
+        59vw 21.9vh #fff,
+        6.9vw 81.5vh #fff,
+        31.4vw 8.5vh #fff,
+        11.4vw 63.5vh #fff,
+        80.7vw 5.9vh #fff,
+        92.7vw 21.2vh #fff,
+        24.1vw 23.8vh #fff,
+        78.3vw 89.9vh #fff,
+        77vw 68.5vh #fff,
+        20.8vw 92.7vh #fff,
+        49.8vw 59.3vh #fff,
+        63.5vw 88.6vh #fff,
+        55.2vw 37.8vh #fff,
+        49.6vw 87.8vh #fff,
+        68vw 36vh #fff,
+        6vw 68.3vh #fff,
+        81.3vw 34.8vh #fff,
+        2.9vw 65vh #fff,
+        2vw 82.4vh #fff,
+        31.7vw 17vh #fff,
+        98.2vw 19.8vh #fff,
+        71.8vw 8.1vh #fff,
+        68.6vw 27.5vh #fff,
+        86.1vw 53.2vh #fff,
+        28.8vw 94.4vh #fff,
+        16.3vw 84.9vh #fff,
+        43.8vw 20.5vh #fff,
+        9.1vw 45.2vh #fff,
+        41.7vw 72.3vh #fff,
+        82.3vw 70.9vh #fff,
+        88.8vw 91.4vh #fff,
+        88.6vw 55.4vh #fff,
+        37.1vw 21.4vh #fff,
+        35.1vw 63vh #fff,
+        92vw 70.2vh #fff,
+        73.3vw 99.8vh #fff,
+        86.2vw 64.1vh #fff,
+        76.9vw 96.6vh #fff,
+        38.1vw 26.1vh #fff,
+        2.8vw 47.1vh #fff,
+        16.5vw 55.7vh #fff,
+        90.8vw 45.2vh #fff,
+        82.9vw 96.2vh #fff,
+        63vw 27.7vh #fff,
+        78.5vw 52.9vh #fff,
+        27.8vw 14.9vh #fff,
+        41.3vw 61.6vh #fff,
+        13.3vw 13.2vh #fff,
+        66vw 10.7vh #fff,
+        6.6vw 6.8vh #fff,
+        34.7vw 93.2vh #fff,
+        24.2vw 70.7vh #fff,
+        74.5vw 26.6vh #fff,
+        66.3vw 33.5vh #fff,
+        9vw 11.5vh #fff,
+        1.6vw 35.7vh #fff,
+        28.5vw 67.8vh #fff,
+        60.7vw 32.5vh #fff,
+        82.6vw 33vh #fff,
+        8.8vw 31.2vh #fff,
+        57.7vw 35.3vh #fff,
+        96.2vw 26.1vh #fff,
+        89.3vw 68vh #fff,
+        20.9vw 88.8vh #fff,
+        97.5vw 88vh #fff,
+        6.6vw 64.8vh #fff,
+        14.8vw 33.5vh #fff,
+        7.5vw 42.7vh #fff,
+        31.6vw 18.4vh #fff,
+        13.5vw 71vh #fff,
+        59.5vw 41.2vh #fff,
+        56.3vw 68.9vh #fff,
+        21.9vw 74.3vh #fff,
+        44.4vw 91.3vh #fff,
+        22.8vw 63.1vh #fff,
+        75.1vw 91vh #fff,
+        37.9vw 22.3vh #fff,
+        57.7vw 19.5vh #fff,
+        64vw 93.8vh #fff,
+        78vw 94.2vh #fff,
+        22.1vw 21.5vh #fff,
+        13vw 35.2vh #fff,
+        96vw 95.4vh #fff,
+        20.4vw 62.7vh #fff,
+        81.3vw 25.7vh #fff,
+        36.7vw 90.4vh #fff,
+        36.8vw 0.7vh #fff,
+        10.8vw 81.8vh #fff,
+        6.7vw 51.6vh #fff,
+        83.6vw 44.1vh #fff,
+        93.3vw 18.1vh #fff,
+        90.8vw 34.5vh #fff,
+        55.1vw 45.6vh #fff,
+        28.7vw 56.6vh #fff,
+        3.1vw 47.3vh #fff,
+        26.4vw 81vh #fff,
+        57.4vw 28.3vh #fff,
+        6.4vw 86vh #fff,
+        82.1vw 61.1vh #fff,
+        44vw 48.1vh #fff,
+        51.4vw 83.5vh #fff,
+        11.5vw 93.9vh #fff,
+        32.1vw 93.5vh #fff,
+        21.7vw 71.7vh #fff,
+        86.7vw 98.9vh #fff,
+        30.6vw 83.6vh #fff,
+        39.5vw 92.4vh #fff,
+        15.8vw 12.3vh #fff,
+        2.2vw 82.6vh #fff,
+        71.2vw 85.5vh #fff,
+        62.6vw 76.4vh #fff,
+        61.3vw 39.3vh #fff,
+        2.6vw 40.8vh #fff,
+        98.1vw 99.4vh #fff,
+        79.6vw 11.7vh #fff,
+        43vw 83.9vh #fff,
+        82.6vw 22.3vh #fff,
+        35.8vw 21.8vh #fff,
+        76.4vw 16.5vh #fff,
+        41.8vw 57.2vh #fff,
+        95.3vw 58.2vh #fff,
+        63.8vw 9.4vh #fff,
+        58.3vw 56.4vh #fff,
+        19.4vw 85.8vh #fff,
+        97.3vw 70.4vh #fff,
+        6.1vw 69.1vh #fff,
+        67vw 76vh #fff,
+        17.5vw 41.5vh #fff,
+        96.2vw 0.3vh #fff,
+        15.2vw 5.3vh #fff,
+        30.2vw 39.7vh #fff,
+        70.5vw 59.9vh #fff,
+        18.3vw 28.6vh #fff,
+        91.7vw 37.6vh #fff,
+        50.8vw 27.2vh #fff,
+        58.3vw 81.8vh #fff,
+        56.1vw 56.1vh #fff,
+        94.4vw 88.9vh #fff,
+        93.8vw 7.7vh #fff,
+        17.6vw 80.4vh #fff,
+        67.2vw 95.7vh #fff,
+        38.5vw 24.9vh #fff,
+        7.4vw 92.6vh #fff,
+        56.3vw 60.7vh #fff,
+        33.3vw 54.1vh #fff,
+        61.7vw 38.1vh #fff,
+        81.6vw 14.7vh #fff,
+        12.7vw 0.2vh #fff,
+        40.1vw 43.3vh #fff,
+        96vw 81.4vh #fff,
+        86.7vw 34vh #fff,
+        28.9vw 66.1vh #fff,
+        5.2vw 0.3vh #fff,
+        53.3vw 27.1vh #fff,
+        22.6vw 80.6vh #fff,
+        90.8vw 94.6vh #fff,
+        11.1vw 45.3vh #fff,
+        39.1vw 0.8vh #fff,
+        17.5vw 21.5vh #fff,
+        39.1vw 81.2vh #fff,
+        0.4vw 0.4vh #fff,
+        84.5vw 30.9vh #fff,
+        91.1vw 10.1vh #fff,
+        92.5vw 41vh #fff,
+        2.5vw 33.3vh #fff,
+        68.4vw 81.8vh #fff,
+        68.3vw 73.7vh #fff,
+        96vw 40.7vh #fff,
+        35.3vw 93.5vh #fff,
+        52.8vw 23.9vh #fff,
+        10.1vw 13.4vh #fff,
+        33.9vw 63.8vh #fff,
+        10.9vw 69.4vh #fff,
+        1.1vw 76.9vh #fff,
+        30.5vw 9.3vh #fff,
+        19.2vw 0.3vh #fff,
+        64.9vw 56.4vh #fff,
+        82.6vw 5vh #fff,
+        77.9vw 25.4vh #fff,
+        37.5vw 31.9vh #fff,
+        14.4vw 98.8vh #fff,
+        78.3vw 50.8vh #fff,
+        85.9vw 91vh #fff,
+        84.9vw 99.1vh #fff,
+        22.8vw 26.5vh #fff,
+        90.9vw 75.7vh #fff,
+        11.7vw 97.7vh #fff,
+        83.7vw 3.8vh #fff,
+        46.6vw 1vh #fff,
+        82.7vw 7.2vh #fff,
+        34.4vw 30.1vh #fff,
+        75.8vw 68.1vh #fff,
+        33.6vw 44.6vh #fff,
+        61.6vw 90.9vh #fff,
+        82.6vw 74.8vh #fff,
+        89.9vw 32vh #fff,
+        95.4vw 28.7vh #fff,
+        62.9vw 64.6vh #fff,
+        22vw 14.5vh #fff,
+        44.3vw 99.5vh #fff;
+    }
+
+    &--md {
+      width: 2px;
+      height: 2px;
+      opacity: 0.75;
+      box-shadow:
+        22.8vw 13.5vh #fff,
+        8.5vw 90.3vh #fff,
+        88vw 33.7vh #fff,
+        55.5vw 36.1vh #fff,
+        87.7vw 44vh #fff,
+        40.4vw 6.6vh #fff,
+        71.1vw 8.8vh #fff,
+        47.5vw 47.2vh #fff,
+        78.6vw 39.2vh #fff,
+        98.2vw 23.8vh #fff,
+        58.2vw 38.1vh #fff,
+        48.7vw 29.2vh #fff,
+        72.6vw 20.8vh #fff,
+        98.1vw 91.3vh #fff,
+        94.4vw 19.2vh #fff,
+        58.8vw 53.5vh #fff,
+        37.6vw 52.4vh #fff,
+        50.4vw 90.1vh #fff,
+        14.8vw 3.7vh #fff,
+        81.9vw 35.6vh #fff,
+        3vw 73.4vh #fff,
+        40.9vw 4.3vh #fff,
+        45.8vw 66.6vh #fff,
+        0.7vw 1vh #fff,
+        59.5vw 23.6vh #fff,
+        46.6vw 2.9vh #fff,
+        97vw 20.8vh #fff,
+        6.2vw 14.2vh #fff,
+        32.1vw 96.7vh #fff,
+        19.8vw 9.4vh #fff,
+        80.2vw 86vh #fff,
+        4.1vw 6.1vh #fff,
+        16vw 76.5vh #fff,
+        73.3vw 68.8vh #fff,
+        13.4vw 18.3vh #fff,
+        52.8vw 86.3vh #fff,
+        25.5vw 64.9vh #fff,
+        13.3vw 56.8vh #fff,
+        80vw 12.3vh #fff,
+        95.7vw 71.4vh #fff,
+        26.8vw 75.9vh #fff,
+        95.5vw 30.5vh #fff,
+        53.6vw 13vh #fff,
+        55.5vw 88vh #fff,
+        10.7vw 7.2vh #fff,
+        52.2vw 57.7vh #fff,
+        58.1vw 44.7vh #fff,
+        41.8vw 34.6vh #fff,
+        36.2vw 67.7vh #fff,
+        19.6vw 22.2vh #fff,
+        26.4vw 35.3vh #fff,
+        52.1vw 35.4vh #fff,
+        79.2vw 36vh #fff,
+        30.4vw 41.7vh #fff,
+        43.3vw 29.9vh #fff,
+        58.9vw 62.1vh #fff,
+        26vw 67vh #fff,
+        59.3vw 52.1vh #fff,
+        80.1vw 65.2vh #fff,
+        11.9vw 17.2vh #fff,
+        35.8vw 52.6vh #fff,
+        10.6vw 42.9vh #fff,
+        0.5vw 48.8vh #fff,
+        40.7vw 13.3vh #fff,
+        5.5vw 12.3vh #fff,
+        53.2vw 50.5vh #fff,
+        96.8vw 23.1vh #fff,
+        26.9vw 16.3vh #fff,
+        36.3vw 13.5vh #fff,
+        90.2vw 78.1vh #fff,
+        64.5vw 85.7vh #fff,
+        26.8vw 56.7vh #fff,
+        52.5vw 66.3vh #fff,
+        20.7vw 7.2vh #fff,
+        4vw 85.9vh #fff,
+        67vw 33.7vh #fff,
+        24.3vw 53vh #fff,
+        91.9vw 78vh #fff,
+        12.5vw 93.7vh #fff,
+        71.5vw 40vh #fff,
+        42.1vw 92.9vh #fff,
+        74.9vw 9.3vh #fff,
+        74.8vw 63vh #fff,
+        15.2vw 4.1vh #fff,
+        15.2vw 79.4vh #fff,
+        23.2vw 60vh #fff,
+        49.2vw 87.8vh #fff,
+        14.5vw 99vh #fff,
+        93.1vw 75.7vh #fff,
+        60.3vw 55.8vh #fff,
+        11.9vw 52.8vh #fff,
+        16.6vw 86.5vh #fff,
+        21.4vw 46.2vh #fff,
+        48vw 77.4vh #fff,
+        66.6vw 29.5vh #fff,
+        95.3vw 35vh #fff,
+        45.1vw 68.1vh #fff,
+        55.4vw 79.4vh #fff,
+        58.7vw 87.8vh #fff,
+        11vw 51.1vh #ffffff;
+    }
+
+    &--lg {
+      width: 3px;
+      height: 3px;
+      opacity: 1;
+      box-shadow:
+        80.5vw 41.8vh #fff,
+        30.6vw 81.5vh #fff,
+        85.7vw 37.5vh #fff,
+        92.9vw 52.2vh #fff,
+        68.3vw 68vh #fff,
+        28.6vw 1.7vh #fff,
+        95.3vw 50.1vh #fff,
+        27vw 82.2vh #fff,
+        13.9vw 87.6vh #fff,
+        9.5vw 24.7vh #fff,
+        66.5vw 36.1vh #fff,
+        84vw 98.7vh #fff,
+        75.4vw 41.7vh #fff,
+        98.7vw 77.4vh #fff,
+        96.2vw 91.7vh #fff,
+        20.5vw 23.8vh #fff,
+        14.8vw 63.6vh #fff,
+        19.7vw 55.5vh #fff,
+        2.5vw 7.8vh #fff,
+        91.1vw 33.3vh #fff,
+        62.2vw 13.9vh #fff,
+        27.8vw 83.7vh #fff,
+        98.1vw 89.6vh #fff,
+        58.5vw 56vh #fff,
+        54.6vw 86.1vh #fff,
+        5.3vw 84.6vh #fff,
+        47.1vw 45.9vh #fff,
+        2.1vw 11.2vh #fff,
+        21.2vw 58.1vh #fff,
+        18.4vw 89.7vh #fff;
+    }
+  }
+
+  &__top {
+    flex: 1; // забирает всё свободное место
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; // центрирует glow+logo внутри себя
+    position: relative;
+    width: 100%; /* Чтобы абсолютное позиционирование внутри отталкивалось от всей ширины */
+  }
+
+  &__glow {
+    // position: absolute;
+    // border-radius: 50%;
+    // background: rgba(139, 92, 246, 0.4);
+    // filter: blur(40px);
+    // width: 100%;
+    // max-width: 400px;
+    // height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Центрируем точно за текстом */
+    border-radius: 50%;
+    background: rgba(139, 92, 246, 0.4);
+    filter: blur(40px);
+    width: 90vw; /* Адаптивная ширина под экран мобилки */
+    max-width: 400px; /* Не будет шире 400px на десктопе */
+    height: 140px; /* Сплюснутая форма овала */
+  }
+
+  &__logo {
+    // font-size: 40px;
+    font-size: 2.5rem;
+    font-size: clamp(
+      2.5rem,
+      1.9642857142857144rem + 2.6785714285714284vw,
+      4.375rem
+    );
+    color: #f5f5f7;
+    font-weight: 500;
+    letter-spacing: 2px;
+    justify-content: center;
+    position: relative; /* Чтобы текст был поверх свечения */
+    z-index: 2;
+  }
+
+  &__bottom {
+    margin-top: auto;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__caption {
+    font-size: 0.5625rem;
+    font-size: clamp(
+      0.5625rem,
+      0.5267857142857143rem + 0.17857142857142858vw,
+      0.6875rem
+    );
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__bar {
+    width: 160px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+
+    &-fill {
+      width: 40%;
+      height: 100%;
+      background: #8b5cf6;
+      border-radius: 2px;
+      animation: identifier 1.2s ease-in-out infinite;
+    }
+  }
+
+  @media screen and (max-width: 425px) {
+    & &__bottom {
+      gap: 10px;
+    }
+    & &__bar {
+      width: 130px; /* Уменьшенная длина на мобилках */
+      height: 2px; /* Уменьшенная толщина */
+    }
+  }
+  @media screen and (max-width: 375px) {
+    & &__bottom {
+      gap: 8px;
+    }
+    & &__bar {
+      width: 120px; /* Уменьшенная длина на мобилках */
+      height: 2px; /* Уменьшенная толщина */
+    }
+  }
+}
