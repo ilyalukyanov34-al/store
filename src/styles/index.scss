@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #0c0b12;
+}
+
+.app{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6c6a78;
+  font-size: 15px;
+}
