@@ -1,0 +1,137 @@
+
+.header {
+  width: 100%;
+  height: 64px;
+
+  background: #0c0b12;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.header__inner {
+  width: 100%;
+  max-width: 1400px;
+  height: 100%;
+
+  margin: 0 auto;
+  padding: 0 18px;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+
+  box-sizing: border-box;
+}
+
+/* Левая часть */
+
+.header__left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Логотип */
+
+.header__logo {
+  color: #fff;
+
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+
+  text-decoration: none;
+
+  transition: opacity 0.2s ease;
+}
+
+.header__logo:hover {
+  opacity: 0.75;
+}
+
+/* Правая часть */
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 4px;
+}
+
+/* Кнопки */
+
+.header__button {
+  position: relative;
+
+  width: 38px;
+  height: 38px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: #96969f;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.header__button:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.header__button:active {
+  transform: scale(0.94);
+}
+
+/* Сердце */
+
+.header__button--heart {
+  color: #e94d70;
+}
+
+.header__button--heart:hover {
+  color: #ff6688;
+}
+
+/* Бейдж */
+
+.header__badge {
+  position: absolute;
+
+  top: 1px;
+  right: 1px;
+
+  min-width: 15px;
+  height: 15px;
+
+  padding: 0 3px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #913cff;
+
+  color: #fff;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  box-sizing: border-box;
+}
