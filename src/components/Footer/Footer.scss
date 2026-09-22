@@ -1,0 +1,136 @@
+.footer {
+  background: #0f0d16;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 48px 40px 0;
+  margin-top: auto;
+
+  &__top {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+  }
+
+  &__logo {
+    font-family: "Unbounded", sans-serif;
+    font-size: 20px;
+    color: #fff;
+    margin: 0 0 12px;
+  }
+
+  &__desc {
+    color: #8a8894;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0 0 16px;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 12px;
+    img {
+      width: 18px;
+      height: 18px;
+    }
+
+    a {
+      color: #8a8894;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      transition:
+        color 0.2s ease,
+        background 0.2s ease;
+
+      &:hover {
+        color: #fff;
+        background: #8b5cf6;
+      }
+    }
+  }
+
+  &__column {
+    h3 {
+      color: #fff;
+      font-size: 14px;
+      margin: 0 0 16px;
+    }
+
+    p {
+      display: block;
+      color: #8a8894;
+      font-size: 13px;
+      margin-bottom: 10px;
+      transition: color 0.2s ease;
+      cursor: pointer;
+
+      &:hover {
+        color: #8b5cf6;
+      }
+    }
+  }
+
+  &__subscribe {
+    h3 {
+      color: #fff;
+      font-size: 14px;
+      margin: 0 0 10px;
+    }
+
+    p {
+      color: #8a8894;
+      font-size: 13px;
+      margin: 0 0 14px;
+    }
+  }
+
+  &__subscribe-input {
+    display: flex;
+    gap: 8px;
+
+    input {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 10px 14px;
+      color: #fff;
+      font-size: 13px;
+      outline: none;
+
+      &::placeholder {
+        color: #6c6a78;
+      }
+    }
+
+    button {
+      background: #8b5cf6;
+      border: none;
+      border-radius: 10px;
+      width: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 20px 0;
+    text-align: center;
+
+    p {
+      color: #6c6a78;
+      font-size: 12px;
+      margin: 0;
+    }
+  }
+}
