@@ -1,38 +1,8 @@
-// .category__filter {
-//   display: flex;
-//   position: relative;
-
-//   &-indicator {
-//     background: #8b5cf6;
-//     height: 100%;
-//     top: 0;
-//     position: absolute;
-//     border-radius: 2px;
-//     transition:
-//       left 0.3s ease,
-//       width 0.3s ease;
-//   }
-
-//   &-btn {
-//     border: none;
-//     background: none;  
-//     padding: 10px;
-//     color: aliceblue;
-//     position: relative;
-//     z-index: 2;
-
-//     &.is-active {
-//       color: red;
-//     }
-//   }
-// }
-
-
 .category__filter {
   position: relative;
   display: flex;
   gap: 8px;
-  background-color: #f3f4f6; /* цвет подложки панели */
+  background-color: #15131f; /* цвет подложки панели */
   padding: 4px;
   border-radius: 12px;
   width: max-content;
@@ -46,7 +16,7 @@
     bottom: 4px;
     left: 0;
     width: 0;
-    background-color: #ffffff; /* цвет активной плашки */
+    background-color: #8b5cf6;; /* цвет активной плашки */
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     /* Плавный переход позиции и ширины */
@@ -62,14 +32,14 @@
     padding: 8px 16px;
     font-size: 14px;
     font-weight: 500;
-    color: #4b5563;
+    color: #8a8894;
     cursor: pointer;
     border-radius: 8px;
     transition: color 0.2s ease;
     white-space: nowrap;
 
     &:hover {
-      color: #111827;
+      color: #ffffff;
     }
 
     &.is-active {
