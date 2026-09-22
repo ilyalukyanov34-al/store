@@ -1,7 +1,7 @@
 import Loader from "./components/Loader/Loader";
 import Face from "./components/Header/Header";
 import Hero from "./components/Hero/Hero";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./styles/index.scss";
 import "./components/Hero/Hero.scss";
 import type { Product } from "./components/ProductCard/ProductCard";
@@ -27,6 +27,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearching, setIsSearching] = useState(false);
   const [activeCategory, setActiveCategory] = useState("all");
+  const productsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     fetch("https://dummyjson.com/products?limit=0")
@@ -44,33 +45,27 @@ function App() {
       });
   }, []);
 
-  const filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(searchQuery.toLowerCase()),
-  );
-
-  // const filteredProducts = products.filter((product) => {
-  //   // 1. Проверяем категорию
-  //   let matchesCategory = false;
-  //   if (activeCategory === "all") {
-  //     matchesCategory = true;
-  //   } else if (activeCategory === "watches") {
-  //     // Для «Часов» проверяем оба возможных варианта из API
-  //     matchesCategory =
-  //       product.category === "mens-watches" ||
-  //       product.category === "womens-watches";
-  //   } else {
-  //     // Для остальных категорий (smartphones, laptops и т.д.)
-  //     matchesCategory = product.category === activeCategory;
-  //   }
-
-  //   // 2. Проверяем поисковый запрос по названию
-  //   const matchesSearch = product.title
-  //     .toLowerCase()
-  //     .includes(searchQuery.toLowerCase());
-
-  //   // Товар подходит, если он совпал и по категории, и по поиску
-  //   return matchesCategory && matchesSearch;
-  // });
+  const filteredProducts = products.filter((product) => {
+    // 1. Проверяем категорию
+    let matchesCategory = false;
+    if (activeCategory === "all") {
+      matchesCategory = true;
+    } else if (activeCategory === "watches") {
+      // Для «Часов» проверяем оба возможных варианта из API
+      matchesCategory =
+        product.category === "mens-watches" ||
+        product.category === "womens-watches";
+    } else {
+      // Для остальных категорий (smartphones, laptops и т.д.)
+      matchesCategory = product.category === activeCategory;
+    }
+    // 2. Проверяем поисковый запрос по названию
+    const matchesSearch = product.title
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+    // Товар подходит, если он совпал и по категории, и по поиску
+    return matchesCategory && matchesSearch;
+  });
 
   const handleSearch = (query: string) => {
     setIsSearching(true);
@@ -80,47 +75,43 @@ function App() {
     }, 500);
   };
 
-  // return (
-  //   <div className="app">
-  //     {isLoading ? <Loader /> : <Face />}
-  //     <Search
-  //       onSearch={handleSearch}
-  //       onTyping={() => setIsSearching(true)}
-  //     />{" "}
-  //     <Hero />
-  //     {isSearching ? (
-  //       <SearchLoader />
-  //     ) : filteredProducts.length > 0 ? (
-  //       <ProductGrid products={filteredProducts} />
-  //     ) : (
-  //       <div className="no-results">
-  //         <SearchX size={40} />
-  //         <p>Товары не найдены</p>
-  //       </div>
-  //     )}
-  //     <Footer />
-  //   </div>
-  // );
+  const handleCategorySelect = (id: string) => {
+    setActiveCategory(id);
+  };
+
+  const isFirstRender = useRef(true);
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    productsRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, [activeCategory]);
+
   return (
     <div className="app">
       {isLoading ? <Loader /> : <Face />}
       <Search onSearch={handleSearch} onTyping={() => setIsSearching(true)} />
       <Hero />
-      <CategoryFilter
-        active={activeCategory}
-        onSelect={(id) => setActiveCategory(id)}
-      />
-      {isSearching ? (
-        <SearchLoader />
-      ) : filteredProducts.length > 0 ? (
-        <ProductGrid products={filteredProducts} />
-      ) : (
-        <div className="no-results">
-          <SearchX size={40} />
-          <p>Товары не найдены</p>
-        </div>
-      )}
 
+      <CategoryFilter active={activeCategory} onSelect={handleCategorySelect} />
+
+      <div ref={productsRef}>
+        {isSearching ? (
+          <SearchLoader />
+        ) : filteredProducts.length > 0 ? (
+          <ProductGrid products={filteredProducts} />
+        ) : (
+          <div className="no-results">
+            <SearchX size={40} />
+            <p>Товары не найдены</p>
+          </div>
+        )}
+      </div>
       <Footer />
     </div>
   );
