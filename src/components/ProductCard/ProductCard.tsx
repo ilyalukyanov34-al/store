@@ -1,4 +1,5 @@
 import "./ProductCard.scss";
+import { useNavigate } from "react-router-dom";
 
 export type Product = {
   id: number;
@@ -20,8 +21,12 @@ const currencyFormatter = new Intl.NumberFormat("en-US", {
 const ProductCard = (props: { product: Product }) => {
   const { product } = props;
 
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/product/${product.id}`);
+  };
   return (
-    <div className="product__card">
+    <div className="product__card" onClick={handleClick}>
       <img
         src={product.thumbnail}
         alt={product.title}
