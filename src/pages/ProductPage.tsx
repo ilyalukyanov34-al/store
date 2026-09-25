@@ -69,7 +69,7 @@ const ProductPage = () => {
     <div className="product">
       <div className="product__left">
         <Link to="/" className="product__left-out">
-          <ArrowLeft size={20}/> Назад к каталогу
+          <ArrowLeft size={20} /> Назад к каталогу
         </Link>
         {isLoading ? (
           <div>Загрузка...</div>
@@ -157,15 +157,14 @@ const ProductPage = () => {
           )}
         </button>
 
-          <div className="product__right-features">
-            <div>
-              <Truck size={16}/> Быстрая доставка
-            </div>
-            <div>
-              <ShieldCheck size={16}/> Гарантия 1 год
-            </div>
+        <div className="product__right-features">
+          <div>
+            <Truck size={16} /> Быстрая доставка
           </div>
-
+          <div>
+            <ShieldCheck size={16} /> Гарантия 1 год
+          </div>
+        </div>
       </div>
     </div>
   );
