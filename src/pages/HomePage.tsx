@@ -29,19 +29,52 @@ function HomePage() {
   const [activeCategory, setActiveCategory] = useState("all");
   const productsRef = useRef<HTMLDivElement>(null);
 
+  // useEffect(() => {
+  //   fetch("https://dummyjson.com/products?limit=0")
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       const filtered = data.products.filter((item: Product) =>
+  //         TARGET_CATEGORIES.includes(item.category),
+  //       );
+  //       setProducts(filtered);
+  //       setIsLoading(false); // Выключаем лоадер, когда всё скачалось и отфильтровалось
+  //     })
+  //     .catch((error) => {
+  //       console.error("Ошибка загрузки:", error);
+  //       setIsLoading(false); // Выключаем лоадер даже если произошла ошибка, чтобы сайт не висел
+  //     });
+  // }, []);
+
   useEffect(() => {
+    const startTime = Date.now();
+
     fetch("https://dummyjson.com/products?limit=0")
       .then((response) => response.json())
       .then((data) => {
         const filtered = data.products.filter((item: Product) =>
           TARGET_CATEGORIES.includes(item.category),
         );
+
         setProducts(filtered);
-        setIsLoading(false); // Выключаем лоадер, когда всё скачалось и отфильтровалось
+
+        // Минимальное время показа Loader — 3 секунды
+        const elapsed = Date.now() - startTime;
+        const remaining = Math.max(3000 - elapsed, 0);
+
+        setTimeout(() => {
+          setIsLoading(false);
+        }, remaining);
       })
       .catch((error) => {
         console.error("Ошибка загрузки:", error);
-        setIsLoading(false); // Выключаем лоадер даже если произошла ошибка, чтобы сайт не висел
+
+        // Даже при ошибке показываем Loader 3 секунды
+        const elapsed = Date.now() - startTime;
+        const remaining = Math.max(3000 - elapsed, 0);
+
+        setTimeout(() => {
+          setIsLoading(false);
+        }, remaining);
       });
   }, []);
 
