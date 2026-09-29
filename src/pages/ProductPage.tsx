@@ -121,10 +121,9 @@ const ProductPage = () => {
               <span>{product?.rating}</span>
             </div>
             <div className="product__right-stock">
-              <ShieldCheck size={18} />
               <span>
                 {product?.stock && product.stock > 0
-                  ? `В наличии: ${product.stock} шт.`
+                  ? `В наличии: (${product.stock} шт.)`
                   : "Нет в наличии"}
               </span>
             </div>
@@ -159,10 +158,10 @@ const ProductPage = () => {
           </button>
 
           <div className="product__right-features">
-            <div>
+            <div className="product__right-features_addit">
               <Truck size={16} /> Быстрая доставка
             </div>
-            <div>
+            <div className="product__right-features_addit">
               <ShieldCheck size={16} /> Гарантия 1 год
             </div>
           </div>
