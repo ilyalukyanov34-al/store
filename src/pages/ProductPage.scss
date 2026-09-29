@@ -1,20 +1,39 @@
-.product {
+.product-page {
   max-width: 1200px;
   margin: 0 auto;
-  margin-top: 20px;
-  padding: 20px;
-  background: #18181b;
-  border-radius: 2px;
+}
+
+.product {
   display: grid;
   grid-template-columns: 0.9fr 1fr;
   gap: 40px;
+  margin-top: 10px;
+  padding: 20px;
+  background: #18181b;
+  border-radius: 2px;
+  border-radius: 10px;
 
   &__left {
     display: flex;
     flex-direction: column;
+    padding: 15px;
+
+    &-out {
+      display: flex;
+      text-decoration: none;
+      gap: 3px;
+      align-items: center;
+      background: #1e1e24;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      width: 170px;
+      border-radius: 10px;
+      margin-top: 10px;
+      color: grey;
+    }
 
     &-image {
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 1 / 0;
       background: #27272a;
       border-radius: 12px;
       overflow: hidden;
@@ -33,8 +52,26 @@
       height: 36px;
       border-radius: 50%;
       background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       transform: translateY(-50%);
       top: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.85);
+        transform: translateY(-50%) scale(1.05);
+      }
+      &:active {
+        transform: translateY(-50%) scale(0.95);
+      }
 
       &_prev {
         left: 12px;
@@ -48,24 +85,52 @@
       display: flex;
       gap: 10px;
       border-radius: 5px;
+      overflow-x: auto;
       margin-top: 12px;
+      scroll-behavior: smooth;
+      padding-bottom: 5px;
+
+      &::-webkit-scrollbar {
+        height: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #27272a;
+        border-radius: 4px;
+      }
+
       img {
         object-fit: contain;
       }
     }
   }
+
   &__thumb {
     width: 70px;
     height: 70px;
     border-radius: 8px;
     opacity: 0.5;
     overflow: hidden;
+    background: #1e1e24;
+    border: 2px solid transparent;
+    cursor: pointer;
+    padding: 4px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
+
+
   &__thumb.active {
     border: 2px solid #22c55e;
     opacity: 1;
-    width: 70px;
-    height: 70px;
   }
   &__right {
     display: flex;
