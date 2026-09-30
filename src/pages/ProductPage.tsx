@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import "./ProductPage.scss";
+import { Heart } from "lucide-react";
+
 import {
   ArrowLeft,
   Star,
@@ -28,6 +30,7 @@ const ProductPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAdded, setIsAdded] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     fetch("https://dummyjson.com/products/" + id)
@@ -65,6 +68,16 @@ const ProductPage = () => {
     }
   };
 
+  const handleAddClick = () => {
+    if (isAdded) return;
+
+    setIsAdded(true);
+
+    setTimeout(() => {
+      setIsAdded(false);
+    }, 3000);
+  };
+
   return (
     <div className="product-page">
       <Link to="/" className="product__left-out">
@@ -83,8 +96,19 @@ const ProductPage = () => {
               >
                 <ChevronLeft size={20} />
               </button>
-              <img src={product.images[currentIndex]} alt="Product" />
 
+              <img src={product.images[currentIndex]} alt="Product" />
+              {/* Кнопка избранного */}
+              <button
+                className="product__left-favorite"
+                onClick={() => setIsFavorite(!isFavorite)}
+              >
+                <Heart
+                  size={22}
+                  fill={isFavorite ? "#ef4444" : "none"}
+                  color={isFavorite ? "#ef4444" : "#ffffff"}
+                />
+              </button>
               <button
                 className="product__left-slider product__left-slider_next"
                 onClick={nextSlide}
@@ -144,7 +168,8 @@ const ProductPage = () => {
             className={
               isAdded ? "product__right-add added" : "product__right-add"
             }
-            onClick={() => setIsAdded(!isAdded)}
+            onClick={handleAddClick}
+            // onClick={() => setIsAdded(!isAdded)}
           >
             {isAdded ? (
               <>
