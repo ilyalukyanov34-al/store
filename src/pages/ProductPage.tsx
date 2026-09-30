@@ -98,17 +98,7 @@ const ProductPage = () => {
               </button>
 
               <img src={product.images[currentIndex]} alt="Product" />
-              {/* Кнопка избранного */}
-              <button
-                className="product__left-favorite"
-                onClick={() => setIsFavorite(!isFavorite)}
-              >
-                <Heart
-                  size={22}
-                  fill={isFavorite ? "#ef4444" : "none"}
-                  color={isFavorite ? "#ef4444" : "#ffffff"}
-                />
-              </button>
+
               <button
                 className="product__left-slider product__left-slider_next"
                 onClick={nextSlide}
@@ -136,7 +126,21 @@ const ProductPage = () => {
         </div>
 
         <div className="product__right">
-          <div className="product__right-brand">{product?.brand}</div>
+          <div className="product__right-top">
+            <div className="product__right-brand">{product?.brand}</div>
+            {/* Кнопка избранного */}
+            <button
+              className="product__right-favorite"
+              onClick={() => setIsFavorite(!isFavorite)}
+            >
+              <Heart
+                size={22}
+                fill={isFavorite ? "#ef4444" : "none"}
+                color={isFavorite ? "#ef4444" : "#ffffff"}
+              />
+            </button>
+          </div>
+
           <h1 className="product__right-title">{product?.title}</h1>
 
           <div className="product__right-meta">
